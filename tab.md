@@ -1,9 +1,7 @@
 # demo
 
-`demo`ディレクトリにjqueryとVue.jsで実装したデモがあります。
-こちらを参考に実際に作っていきましょう。
-
-
+[こちら](https://github.com/du-masa/tab/tree/master/demo/public)にjqueryとVue.jsで実装したデモがあります。
+参考に実際に作っていきましょう。
 
 
 # インストールと読み込み
@@ -19,7 +17,7 @@ $ npm install vue
 ## 読み込み
 インストールしたVue.jsを`assets/tab.js`で読み込みましょう。
 
-```tab.js
+```js
 // tab.js
 
 import Vue from 'vue/dist/vue.esm.js';
@@ -60,7 +58,7 @@ Vue.jsを使うにはまず、初期化処理を行います。
 初期化はVueのインスタンスを作成します。
 `assets/tab.js`に下記を追加しましょう。
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({});
@@ -80,7 +78,7 @@ VueのインスタンスとDOM要素を紐付けます。
 
 `public/tab.html`が下記のようになっていると思います。
 
-```tab.html
+```html
 <!-- tab.html -->
 
 <div class="tabContent" id="tabContent">
@@ -91,7 +89,7 @@ VueのインスタンスとDOM要素を紐付けます。
 
 ここのHTMLにある`id="tabContent"`を使ってVueインスタンスと紐付けます。
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
@@ -110,7 +108,7 @@ const vm = new Vue({
 
 試しに１つ値を設定してみましょう。
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
@@ -132,7 +130,7 @@ dataプロパティに指定した値は、HTML内や属性値、後述するメ
 
 試しに、HTMLで表示してみましょう。
 
-```tab.html
+```html
 <!-- tab.html -->
 
 <div class="tabContent" id="tabContent">
@@ -156,7 +154,7 @@ Vue.jsで管理しているデータをHTMLで扱えることがわかると思�
 今回は、どのタブが現在選択されているかを示す文字列を指定します。
 
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
@@ -208,7 +206,7 @@ Vue.jsの場合は、cssではなく`v-if`ディレクティブを使って表�
 
 `tab.html`の`<div class="tabMain"></div>`の中を変えていきましょう。
 
-```tab.html
+```html
 <!-- tab.html -->
 
 <div class="tabMain">
@@ -298,7 +296,7 @@ const vm = new Vue({
 
 `tab.html`の`<ul class="tab"></ul>`の中を変えていきましょう。
 
-```tab.html
+```html
 <!-- tab.html -->
 
 <ul class="tab">
@@ -358,7 +356,7 @@ blur => `v-bind:blur`
 
 各タブに`v-on:click`を使ってクリックイベントをハンドリングしましょう。`tab`
 
-```tab.html
+```html
 <!-- tab.html -->
 
 <ul class="tab">
@@ -413,7 +411,7 @@ const vm = new Vue({
 
 まずは、メソッドを用意します。
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
@@ -447,7 +445,7 @@ HTMLでも`v-if`や`v-bind:class`を使って、`activeTab`の値を見ること
 
 まずは、HTML側からどのタブが押されたかという情報を送ります。
 
-```tab.html
+```html
 <!-- tab.html -->
 
 <ul class="tab">
@@ -471,7 +469,7 @@ HTMLでも`v-if`や`v-bind:class`を使って、`activeTab`の値を見ること
 
 `setActiveTab`メソッドではその引数を受け取って、`activeTab`の値を更新します。
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
@@ -555,7 +553,7 @@ const vm = new Vue({
 
 まずは、HTMLに書いてあるタブ名やテキストをVue.jsのdataプロパティで管理しましょう。
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
@@ -594,7 +592,7 @@ const vm = new Vue({
 `tabList`という配列を用意して、その中にタブごとのオブジェクトを格納しています。
 この配列を使ってHTMLで繰り返し処理を行います。
 
-```tab.html
+```html
 <!-- tab.html -->
 <ul class="tab">
   <li class="tab__item" v-for="tab in tabList" v-bind:key="tab.title">
@@ -680,7 +678,7 @@ $ npm run jsonServer
 
 まず、axiosを使えるようにしましょう。
 
-```tab.js
+```js
 // tab.js
 
 import Vue from 'vue/dist/vue.esm.js';
@@ -715,7 +713,7 @@ axios.get('http://localhost:3000/tabList').then(function(res) {
 何種類かあるのですが、今回は初期化時に発生する`created`メソッドを使います。
 
 
-```tab.js
+```js
 // tab.js
 
 const vm = new Vue({
