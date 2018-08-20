@@ -1,0 +1,635 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>小さく始める開発環境 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="webpack.html" />
+    
+    
+    <link rel="prev" href="frontEndEnv.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="README.md">
+            
+                <span>
+            
+                    
+                    開発環境構築
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="nodeNpm.html">
+            
+                <a href="nodeNpm.html">
+            
+                    
+                    node.js・npm入門
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="frontEndEnv.html">
+            
+                <a href="frontEndEnv.html">
+            
+                    
+                    開発環境作り
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.2.1" data-path="smallEnv.html">
+            
+                <a href="smallEnv.html">
+            
+                    
+                    小さく始める開発環境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="webpack4.html">
+            
+                <a href="webpack4.html">
+            
+                    
+                    webpack4
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../vue/tab.html">
+            
+                <a href="../vue/tab.html">
+            
+                    
+                    vue.jsで作るタブUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../vue/form.html">
+            
+                <a href="../vue/form.html">
+            
+                    
+                    vue.jsで作るフォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../vue/component.html">
+            
+                <a href="../vue/component.html">
+            
+                    
+                    コンポーネント
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../vue/lifeCycleHook.html">
+            
+                <a href="../vue/lifeCycleHook.html">
+            
+                    
+                    ライフサイクルフック
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../jsonServer/">
+            
+                <a href="../jsonServer/">
+            
+                    
+                    json-server
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >小さく始める開発環境</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5C0F;&#x3055;&#x304F;&#x59CB;&#x3081;&#x308B;&#x958B;&#x767A;&#x74B0;&#x5883;">&#x5C0F;&#x3055;&#x304F;&#x59CB;&#x3081;&#x308B;&#x958B;&#x767A;&#x74B0;&#x5883;</h1>
+<p>&#x3068;&#x306B;&#x304B;&#x304F;&#x624B;&#x3063;&#x53D6;&#x308A;&#x65E9;&#x304F;&#x6700;&#x5C0F;&#x6A5F;&#x80FD;&#x3067;&#x59CB;&#x3081;&#x305F;&#x3044;&#x5834;&#x5408;&#x304A;&#x3059;&#x3059;&#x3081;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="browser-sync">browser-sync</h2>
+<p>&#x958B;&#x767A;&#x6642;&#x306B;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3092;&#x7ACB;&#x3066;&#x3066;&#x3001;
+&#x306A;&#x304A;&#x304B;&#x3064;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x66F4;&#x65B0;&#x3057;&#x305F;&#x3089;&#x81EA;&#x52D5;&#x3067;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x30EA;&#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x308B;&#x3068;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;
+&#x307E;&#x305F;&#x3001;&#x540C;&#x4E00;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;&#x3067;&#x3042;&#x308C;&#x3070;&#x5916;&#x90E8;&#x7AEF;&#x672B;&#x3067;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3001;&#x30B9;&#x30DE;&#x30DB;&#x30C7;&#x30D0;&#x30C3;&#x30AF;&#x3067;&#x3082;&#x6D3B;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><a href="https://browsersync.io" target="_blank">&#x516C;&#x5F0F;&#x30B5;&#x30A4;&#x30C8;</a></p>
+<h3 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h3>
+<pre><code class="lang-bash">$ npm i browser-sync -D
+</code></pre>
+<h3 id="&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x8D77;&#x52D5;">&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x8D77;&#x52D5;</h3>
+<pre><code class="lang-bash">$ npx browser-sync start --server
+</code></pre>
+<p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x30EB;&#x30FC;&#x30C8;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;index.html&#x304C;&#x958B;&#x304B;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x5916;&#x90E8;&#x6A5F;&#x5668;&#x30A2;&#x30AF;&#x30BB;&#x30B9;">&#x5916;&#x90E8;&#x6A5F;&#x5668;&#x30A2;&#x30AF;&#x30BB;&#x30B9;</h3>
+<p>&#x524D;&#x9014;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x3068;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x4E0B;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/83765/5258b352-4069-8e51-55e3-82bb8368d7e1.png" alt="&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8; 2018-02-10 14.10.55.png" title="&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8; 2018-02-10 14.10.55.png"></p>
+<p>External&#x3068;&#x3044;&#x3046;&#x3068;&#x3053;&#x308D;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x3001;&#x81EA;&#x5206;&#x306E;PC&#x306E;IP&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x3068;brower-sync&#x3067;&#x8D77;&#x52D5;&#x3057;&#x305F;&#x30DD;&#x30FC;&#x30C8;&#x756A;&#x53F7;&#x306E;URL&#x3067;&#x3059;&#x3002;
+&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x8D77;&#x52D5;&#x3057;&#x305F;PC&#x3068;&#x540C;&#x3058;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;&#x306B;&#x63A5;&#x7D9A;&#x3057;&#x305F;&#x7AEF;&#x672B;&#x3067;&#x3001;External&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;URL&#x3067;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3059;&#x308B;&#x3068;&#x540C;&#x3058;&#x30DA;&#x30FC;&#x30B8;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x8A2D;&#x5B9A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;">&#x8A2D;&#x5B9A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</h3>
+<p>&#x7D30;&#x304B;&#x3044;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x306E;&#x8A2D;&#x5B9A;&#x306F;config&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x4E88;&#x3081;&#x66F8;&#x3044;&#x3066;&#x304A;&#x304F;&#x3068;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;
+config&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x521D;&#x671F;&#x5316;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">$ npx browser-sync init
+</code></pre>
+<p><code>bs-config.js</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x51FA;&#x6765;&#x4E0A;&#x304C;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x3061;&#x3089;&#x306B;&#x7D30;&#x304B;&#x304F;&#x8A2D;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0B;&#x8A18;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;config&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x4F7F;&#x3063;&#x3066;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3092;&#x8D77;&#x52D5;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">$ npx browser-sync start --server --config bs-config.js
+</code></pre>
+<h3 id="&#x8A2D;&#x5B9A;&#x5185;&#x5BB9;">&#x8A2D;&#x5B9A;&#x5185;&#x5BB9;</h3>
+<p><code>bs-config.js</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x8A2D;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;
+&#x3044;&#x304F;&#x3064;&#x304B;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h4 id="port">port</h4>
+<p>&#x30DD;&#x30FC;&#x30C8;&#x756A;&#x53F7;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306F;3000&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-bs-config.js">// localhost:8000&#x3067;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308B;
+port: 8000,
+</code></pre>
+<h4 id="files">files</h4>
+<p>&#x76E3;&#x8996;&#x306E;&#x5BFE;&#x8C61;&#x3068;&#x306A;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;(&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x540D;)&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x3053;&#x306B;&#x66F8;&#x304B;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x7FA4;&#x304C;&#x5909;&#x66F4;&#x3055;&#x308C;&#x305F;&#x3089;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30EA;&#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bs-config.js">// &apos;./public/main.css&apos;&#x304C;&#x5909;&#x66F4;&#x3055;&#x308C;&#x305F;&#x3089;&#x30EA;&#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x308B;
+files: &apos;./public/main.css&apos;,
+
+// &#x914D;&#x5217;&#x3067;&#x8907;&#x6570;&#x6307;&#x5B9A;&#x3082;&#x53EF;&#x80FD;
+files: [&apos;./public/main.css&apos;, &apos;./public/main.js&apos;]
+
+// glob&#x6307;&#x5B9A;&#x3082;&#x53EF;&#x80FD; ./public&#x4EE5;&#x4E0B;&#x306E;&#x3059;&#x3079;&#x3066;&#x306E;html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x76E3;&#x8996;
+files: &apos;./public/**/*.html&apos;
+</code></pre>
+<h4 id="server">server</h4>
+<p>root&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3084;index&#x3068;&#x306A;&#x308B;html&#x306A;&#x3069;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bg-config.js">
+server: {
+    baseDir: &apos;public&apos;,
+    index: &apos;index.html&apos;,
+    serveStaticOptions: {
+          extensions: [&quot;html&quot;]
+        }
+}
+</code></pre>
+<p>serveStaticOptions&#x306E;extensions&#x306B;&#x62E1;&#x5F35;&#x5B50;&#x3092;&#x5165;&#x308C;&#x308B;&#x3068;&#x3001;URL&#x3067;&#x62E1;&#x5F35;&#x5B50;&#x3092;&#x7701;&#x7565;&#x3057;&#x305F;&#x5F62;&#x3067;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x203B; server&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x3057;&#x3066;&#x3082;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x5074;&#x3067; <code>--server</code> &#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x3064;&#x3051;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x3001;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x8A2D;&#x5B9A;&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x3064;&#x307E;&#x308A;&#x3001; <code>root&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;index.html</code> &#x306B;&#x4E00;&#x756A;&#x6700;&#x521D;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>config&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;server&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x3057;&#x305F;&#x5834;&#x5408;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x4E0B;&#x8A18;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>$ npx browser-sync start --config bs-config.js&quot;
+</code></pre><h4 id="proxy">proxy</h4>
+<p>PHP&#x306A;&#x3069;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x30B5;&#x30A4;&#x30C9;&#x306E;&#x8A00;&#x8A9E;&#x3092;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x74B0;&#x5883;&#x3067;&#x52D5;&#x304B;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;browser-sync&#x3067;&#x306F;&#x52D5;&#x304B;&#x305B;&#x307E;&#x305B;&#x3093;&#x3002;
+mamp&#x3084;&#x4EEE;&#x60F3;&#x74B0;&#x5883;(virtualBox&#x306A;&#x3069;)&#x3067;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x74B0;&#x5883;&#x3092;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;IP&#x3092;proxy&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;browser-sync&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bg-config.js">
+// localhost:8888&#x3092;browser-sync&#x3067;&#x8868;&#x793A;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;
+proxy: {
+    target: &apos;localhost:8888&apos;,
+}
+</code></pre>
+<p>proxy&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;server&#x306E;&#x5024;&#x3092;false&#x306B;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x203B; proxy&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3066;&#x3082;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x5074;&#x3067;<code>--server</code> &#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x3064;&#x3051;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x4E0B;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>Invalid config. You cannot specify both server &amp; proxy options.
+</code></pre><p>server&#x3092;&#x8A2D;&#x5B9A;&#x3068;&#x540C;&#x69D8;&#x3001;proxy&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x5834;&#x5408;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x4E0B;&#x8A18;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>$ npx browser-sync start --config bs-config.js&quot;
+</code></pre><h3 id="&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;npm-scripts&#x3067;&#x7BA1;&#x7406;&#x3059;&#x308B;">&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;npm-scripts&#x3067;&#x7BA1;&#x7406;&#x3059;&#x308B;</h3>
+<p>browser-sync&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x6BCE;&#x56DE;&#x6253;&#x3064;&#x306E;&#x306F;&#x9762;&#x5012;&#x306A;&#x306E;&#x3067;package.json&#x306B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x767B;&#x9332;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-package.json">
+scripts: {
+  &quot;server&quot;: &quot;browser-sync start --server --config bs-config.js&quot;
+}
+</code></pre>
+<h2 id="autoprefixer">autoprefixer</h2>
+<p>&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x81EA;&#x52D5;&#x3067;&#x4ED8;&#x4E0E;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p><a href="https://github.com/postcss/autoprefixer" target="_blank">autoprefixer</a></p>
+<p>autoprefixer&#x306F;<a href="http://postcss.org/" target="_blank">postcss</a>&#x3068;&#x3044;&#x3046;css&#x3092;&#x5909;&#x63DB;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30C4;&#x30FC;&#x30EB;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h3>
+<pre><code class="lang-bash">$ npm i postcss-cli autoprefixer -D
+</code></pre>
+<h3 id="&#x30D3;&#x30EB;&#x30C9;">&#x30D3;&#x30EB;&#x30C9;</h3>
+<p>&#x3067;&#x306F;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x81EA;&#x52D5;&#x4ED8;&#x4E0E;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;</p>
+<pre><code class="lang-bash">$ touch style.css
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(0.5);
+}
+</code></pre>
+<pre><code class="lang-bash">$ npx postcss style.css --use autoprefixer -o style.build.css
+</code></pre>
+<p>style.css&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;autoprefixer&#x306E;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3044;style.build.css&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+style.build.css&#x306E;&#x4E2D;&#x8EAB;&#x306F;&#x4E0B;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x304C;&#x4ED8;&#x4E0E;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-style.build.css">div {
+  -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+}
+</code></pre>
+<h3 id="&#x5BFE;&#x8C61;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x306E;&#x6307;&#x5B9A;">&#x5BFE;&#x8C61;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x306E;&#x6307;&#x5B9A;</h3>
+<p>&#x3069;&#x306E;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3092;&#x5BFE;&#x8C61;&#x3068;&#x3059;&#x308B;&#x304B;&#x3092;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>package.json&#x306E;<code>browserslist</code>&#x3068;&#x3044;&#x3046;&#x9805;&#x76EE;&#x306B;&#x8A18;&#x8F09;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-package.json">
+&quot;browserslist&quot;: [
+    &quot;last 2 versions&quot;
+]
+</code></pre>
+<p>&#x4E0A;&#x8A18;&#x3067;&#x306F;&#x3001;&#x5404;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3054;&#x3068;&#x6700;&#x5F8C;&#x306E;2&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3092;&#x5BFE;&#x8C61;&#x306B;&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x4ED8;&#x4E0E;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x8A2D;&#x5B9A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x6307;&#x5B9A;&#x306F;<a href="https://github.com/ai/browserslist" target="_blank">browserslist</a>&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x306B;&#x57FA;&#x3065;&#x3044;&#x3066;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x306B;&#x57FA;&#x3065;&#x3051;&#x3070;&#x3001;&#x3088;&#x308A;&#x8A73;&#x7D30;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x76E3;&#x8996;&#x3068;npm-srcipts&#x3067;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x7BA1;&#x7406;">&#x76E3;&#x8996;&#x3068;npm-srcipts&#x3067;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x7BA1;&#x7406;</h3>
+<p>&#x6700;&#x5F8C;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x76E3;&#x8996;&#x3068;package.json&#x3078;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x767B;&#x9332;&#x3092;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-package.json">scripts: {
+  &quot;server&quot;: &quot;browser-sync start --config bs-config.js&quot;,
+  &quot;postcss&quot;: &quot;postcss style.css --use autoprefixer -o style.build.css -w&quot;
+}
+</code></pre>
+<p><code>-w</code>&#x3067;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x5909;&#x66F4;&#x3092;&#x76E3;&#x8996;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><a href="https://github.com/zap-mueda/frontend-env/tree/master/browserSync-autoPrefixer" target="_blank">demo: browserSync + autoPrefixer</a></p>
+<h2 id="node-sass">node-sass</h2>
+<p>scss&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306F;&#x3001;<code>node-sass</code>&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h3>
+<pre><code class="lang-bash">$ npm i -D node-sass
+</code></pre>
+<h3 id="&#x30D3;&#x30EB;&#x30C9;">&#x30D3;&#x30EB;&#x30C9;</h3>
+<pre><code class="lang-bash">$ touch style.scss
+</code></pre>
+<pre><code class="lang-style.scss">$list-color: #8cc63f;
+
+ul {
+    padding:0;
+
+    li {
+        color: $list-color;
+        border-bottom: 1px solid $list-color;
+    }
+}
+</code></pre>
+<pre><code class="lang-bash">$ npx node-sass style.scss style.css
+</code></pre>
+<p>&#x3053;&#x308C;&#x3067;scss&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;css&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="autoprefixer&#x306E;&#x51E6;&#x7406;&#x3068;&#x9023;&#x52D5;&#x3055;&#x305B;&#x308B;">autoprefixer&#x306E;&#x51E6;&#x7406;&#x3068;&#x9023;&#x52D5;&#x3055;&#x305B;&#x308B;</h3>
+<p>&#x524D;&#x7BC0;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x305F;autoprefixer&#x51E6;&#x7406;&#x3068;&#x9023;&#x52D5;&#x3055;&#x305B;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
+scss&#x304B;&#x3089;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x305F;css&#x3092;postcss&#x3067;&#x76E3;&#x8996;&#x3059;&#x308C;&#x3070;&#x3001;scss&#x3092;&#x5909;&#x66F4;&#x3057;&#x305F;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3067;
+&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x304C;&#x4ED8;&#x4E0E;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>package.json&#x306B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x307E;&#x3068;&#x3081;&#x3066;&#x66F8;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-package.json">scripts: {
+  &quot;server&quot;: &quot;browser-sync start --config bs-config.js&quot;,
+  &quot;postcss&quot;: &quot;postcss style.css --use autoprefixer -o style.build.css -w&quot;,
+  &quot;scss&quot;: &quot;node-sass style.scss style.css --source-map-embed -w&quot;,
+  &quot;styles&quot;: &quot;npm run scss &amp; npm run postcss&quot;
+}
+</code></pre>
+<p>scss&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x7528;&#x306E;npm-scrips&#x3092;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x3055;&#x3089;&#x306B;styles&#x3068;&#x3044;&#x3046;scripts&#x3067;&#x3001;2&#x3064;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x307E;&#x3068;&#x3081;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">$ npm run styles
+</code></pre>
+<p>&#x3053;&#x308C;&#x3067;&#x3001;style.scss&#x3092;&#x5909;&#x66F4;&#x3059;&#x308C;&#x3070;&#x3001;scss&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30FB;&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x81EA;&#x52D5;&#x4ED8;&#x4E0E;&#x3092;&#x884C;&#x3063;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30D7;&#x30ED;&#x30C0;&#x30AF;&#x30C8;&#x7528;&#x3092;&#x7528;&#x610F;&#x3059;&#x308B;">&#x30D7;&#x30ED;&#x30C0;&#x30AF;&#x30C8;&#x7528;&#x3092;&#x7528;&#x610F;&#x3059;&#x308B;</h3>
+<p>css&#x306E;minify&#x3084;&#x30BD;&#x30FC;&#x30B9;&#x30DE;&#x30C3;&#x30D7;&#x524A;&#x9664;&#x306A;&#x3069;&#x3001;&#x30D7;&#x30ED;&#x30C0;&#x30AF;&#x30C8;&#x7528;&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x51E6;&#x7406;&#x3082;&#x7528;&#x610F;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>&#x5404;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5B9F;&#x73FE;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-package.json">&quot;scripts&quot;: {
+    &quot;server&quot;: &quot;browser-sync start --config bs-config.js&quot;,
+    &quot;postcss&quot;: &quot;postcss style.css --use autoprefixer -o style.min.css -w&quot;,
+    &quot;scss&quot;: &quot;node-sass style.scss style.css --source-map-embed -w&quot;,
+    &quot;styles&quot;: &quot;npm run scss &amp; npm run postcss&quot;,
+    &quot;postcss:prod&quot;: &quot;postcss style.css --use autoprefixer -o style.min.css --no-map&quot;,
+    &quot;scss:prod&quot;: &quot;node-sass style.scss style.css --output-style compressed&quot;,
+    &quot;styles:prod&quot;: &quot;npm run scss:prod &amp; npm run postcss:prod&quot;
+  },
+</code></pre>
+<p><code>postcss:prod</code> <code>scss:prod</code> <code>styles:prod</code> &#x3068;&#x3044;&#x3046;3&#x3064;&#x306E;scripts&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x884C;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x4E0B;&#x8A18;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>watch&#x51E6;&#x7406;&#x306E;&#x524A;&#x9664;</li>
+<li>scss&#x306E;output-style&#x3092;compressed&#x306B;&#x5909;&#x66F4;</li>
+<li>&#x30BD;&#x30FC;&#x30B9;&#x30DE;&#x30C3;&#x30D7;&#x306E;&#x51FA;&#x529B;&#x3092;&#x7121;&#x52B9;</li>
+</ul>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x958B;&#x767A;&#x6642;&#x306F; <code>npm run styles</code> &#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x30A2;&#x30C3;&#x30D7;&#x6642;&#x306F; <code>npm run styles:prod</code> &#x3068;&#x8A00;&#x3063;&#x305F;&#x611F;&#x3058;&#x3067;
+&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5206;&#x3051;&#x3066;&#x7BA1;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="browser-sync&#x306E;&#x76E3;&#x8996;&#x5BFE;&#x8C61;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3066;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;">browser-sync&#x306E;&#x76E3;&#x8996;&#x5BFE;&#x8C61;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3066;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;</h2>
+<p>browser-sync&#x306E;config&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x3001;&#x76E3;&#x8996;&#x5BFE;&#x8C61;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bs-config.js">
+&quot;files&quot;: [&quot;style.min.css&quot;, &quot;index.html&quot;],
+</code></pre>
+<p>&#x958B;&#x767A;&#x6642;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3082;&#x307E;&#x3068;&#x3081;&#x307E;&#x3057;&#x3087;&#x3046;</p>
+<pre><code class="lang-package.json">&quot;scripts&quot;: {
+    &quot;server&quot;: &quot;browser-sync start --config bs-config.js&quot;,
+    &quot;postcss&quot;: &quot;postcss style.css --use autoprefixer -o style.min.css -w&quot;,
+    &quot;scss&quot;: &quot;node-sass style.scss style.css --source-map-embed -w&quot;,
+    &quot;styles&quot;: &quot;npm run scss &amp; npm run postcss&quot;,
+    &quot;postcss:prod&quot;: &quot;postcss style.css --use autoprefixer -o style.min.css --no-map&quot;,
+    &quot;scss:prod&quot;: &quot;node-sass style.scss style.css --output-style compressed&quot;,
+    &quot;styles:prod&quot;: &quot;npm run scss:prod &amp; npm run postcss:prod&quot;,
+    &quot;start&quot;: &quot;npm run server &amp; npm run styles&quot;
+  },
+</code></pre>
+<p><code>start</code>&#x3068;&#x3044;&#x3046;scripts&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<pre><code class="lang-bash">$ npm start
+</code></pre>
+<p>&#x4E0A;&#x8A18;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x8D77;&#x52D5;&#x3068;scss&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x51E6;&#x7406;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li><code>npm run start</code>&#x3067;&#x3082;&#x540C;&#x3058;&#x51E6;&#x7406;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;<code>start</code> &#x306F;&#x3082;&#x3068;&#x3082;&#x3068;&#x7528;&#x610F;&#x3055;&#x308C;&#x305F;&#x540D;&#x524D;&#x306A;&#x306E;&#x3067; <code>run</code> &#x3092;&#x7701;&#x7565;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+<p><a href="https://github.com/zap-mueda/frontend-env/tree/master/browserSync-sass-autoPrefixer" target="_blank">demo: browserSync + autoPrefixer + node-sass</a></p>
+<h2 id="&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x7D39;&#x4ECB;">&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x7D39;&#x4ECB;</h2>
+<h3 id="browserify">browserify</h3>
+<p>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x5206;&#x5272;&#x3057;&#x305F;(&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x5206;&#x5272;)js&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;1&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x307E;&#x3068;&#x3081;&#x3066;&#x304F;&#x308C;&#x308B;</p>
+<p><a href="http://browserify.org/" target="_blank">&#x516C;&#x5F0F;&#x30B5;&#x30A4;&#x30C8;</a></p>
+<p><a href="https://github.com/zap-mueda/frontend-env/tree/master/browserSync-browserify" target="_blank">demo: browserSync + browserify</a></p>
+<h3 id="babel">babel</h3>
+<p>ES2015&#x4EE5;&#x964D;&#x306E;&#x4ED5;&#x69D8;&#x3092;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x306B;&#x5BFE;&#x5FDC;&#x3057;&#x305F;&#x5F62;&#x306B;&#x30C8;&#x30E9;&#x30F3;&#x30B9;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;
+<a href="https://babeljs.io/" target="_blank">&#x516C;&#x5F0F;&#x30B5;&#x30A4;&#x30C8;</a>
+<a href="https://babeljs.io/docs/usage/cli/" target="_blank">babel-cli</a></p>
+<p><a href="https://github.com/zap-mueda/frontend-env/tree/master/browserSync-browserify-babel" target="_blank">demo: browserSync + browserify + babel</a></p>
+<h2 id="&#x307E;&#x3068;&#x3081;">&#x307E;&#x3068;&#x3081;</h2>
+<p>&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x306A;&#x304C;&#x3089;&#x3001;&#x7C21;&#x5358;&#x306A;&#x958B;&#x767A;&#x74B0;&#x5883;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;
+&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x5404;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x81EA;&#x7531;&#x306B;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x4F5C;&#x308A;&#x305F;&#x3044;&#x74B0;&#x5883;&#x3092;&#x7528;&#x610F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x8A2D;&#x5B9A;&#x3082;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x5F15;&#x6570;&#x3084;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x307B;&#x307C;&#x3067;&#x304D;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;
+&#x96E3;&#x3057;&#x3044;&#x8A2D;&#x5B9A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x7B49;&#x3044;&#x3089;&#x306A;&#x3044;&#x306E;&#x304C;&#x3053;&#x306E;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x74B0;&#x5883;&#x3044;&#x3044;&#x3068;&#x3053;&#x308D;&#x3060;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="frontEndEnv.html" class="navigation navigation-prev " aria-label="Previous page: 開発環境作り">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="webpack.html" class="navigation navigation-next " aria-label="Next page: webpack">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"小さく始める開発環境","level":"1.2.2.1","depth":3,"next":{"title":"webpack","level":"1.2.2.2","depth":3,"path":"開発環境構築/webpack.md","ref":"開発環境構築/webpack.md","articles":[]},"previous":{"title":"開発環境作り","level":"1.2.2","depth":2,"path":"開発環境構築/frontEndEnv.md","ref":"開発環境構築/frontEndEnv.md","articles":[{"title":"小さく始める開発環境","level":"1.2.2.1","depth":3,"path":"開発環境構築/smallEnv.md","ref":"開発環境構築/smallEnv.md","articles":[]},{"title":"webpack","level":"1.2.2.2","depth":3,"path":"開発環境構築/webpack.md","ref":"開発環境構築/webpack.md","articles":[]},{"title":"webpack4","level":"1.2.2.3","depth":3,"path":"開発環境構築/webpack4.md","ref":"開発環境構築/webpack4.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"開発環境構築/smallEnv.md","mtime":"2018-08-19T15:05:52.990Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-20T02:01:37.853Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
