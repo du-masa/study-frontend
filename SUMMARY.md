@@ -11,5 +11,7 @@
     * [vue.jsで作るフォーム](vue/form.md)
     * [コンポーネント](vue/component.md)
     * [ライフサイクルフック](vue/lifeCycleHook.md)
+    * [ディレクティブ](vue/directive.md)
+    * [フィルタ](vue/filter.md)
 * [json-server](jsonServer/README.md)
 
