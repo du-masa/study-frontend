@@ -142,7 +142,7 @@ Vue.directive('imageError', {
 
 ```html
 <!-- 属性値を指定する -->
-<img v-image-error="imageErrorValue">
+<img v-image-error="'imageErrorValue'">
 ```
 
 ```js
@@ -162,6 +162,8 @@ Vue.directive('imageError', {
 
 ### vnode
 vue.jsによって生成された仮想nodeです。`vnode` を使うことで仮想DOMにアクセスすることもできるのできます。
+
+[仮想DOMについて](https://qiita.com/risagon/items/019942c60e9c3e6c05a5)
 
 
 ## 画像エラー時の処理を実装する
@@ -207,11 +209,11 @@ Vue.directive('imageError', {
 ``` html
 <div>
     <h2>代替画像1を読み込む場合</h2>
-    <img src="./image/demo-2.png" v-image-error="alternative1">
+    <img src="./image/demo-2.png" v-image-error="'alternative1'">
 </div>
 <div>
     <h2>代替画像2を読み込む場合</h2>
-    <img src="./image/demo-2.png" v-image-error="alternative2">
+    <img src="./image/demo-2.png" v-image-error="'alternative2'">
 </div>
 <div>
     <h2>属性値を何も指定しない場合</h2>
