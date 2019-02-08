@@ -9,5 +9,5 @@
 
 ## Tutorial
 
-- [環境設定](pug/pug-env.md)
-- [文法](pug/pug-lang.md)
+- [環境設定](/pug/pug-env.html)
+- [文法](/pug/pug-lang.html)
