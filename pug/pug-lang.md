@@ -1,4 +1,8 @@
-# pug
+# pug文法の紹介
+
+## リポジトリ
+
+[https://github.com/du-masa/pug](https://github.com/du-masa/pug)
 
 ## pugとは
 

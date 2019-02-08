@@ -1,8 +1,10 @@
-# pug
+# pugの環境設定
 
-## pugの環境設定
+webpackを使ったpugのコンパイル(HTMLファイル化)を紹介します。
 
-今回は、webpackを使ったpugのコンパイル(HTMLファイル化)を紹介します。
+## リポジトリ
+
+[https://github.com/du-masa/pug](https://github.com/du-masa/pug)
 
 ## モジュールインストール
 
