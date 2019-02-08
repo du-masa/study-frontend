@@ -13,5 +13,8 @@
     * [ライフサイクルフック](vue/lifeCycleHook.md)
     * [ディレクティブ](vue/directive.md)
     * [フィルタ](vue/filter.md)
+* [pug]
+    * [pug環境設定](pug/pug-env.md)
+    * [pug文法](pug/pug-lang.md)
 * [json-server](jsonServer/README.md)
 

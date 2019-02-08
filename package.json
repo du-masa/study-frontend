@@ -1,0 +1,27 @@
+{
+  "name": "study-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "gitbook serve",
+    "build": "gitbook build ./ ./docs/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/du-masa/study-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/du-masa/study-frontend/issues"
+  },
+  "homepage": "https://github.com/du-masa/study-frontend#readme",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
