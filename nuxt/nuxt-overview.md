@@ -70,7 +70,7 @@ SEOだけでなくOGPの内容も事前にサーバーサイドで用意する�
 
 逆にいうと、SEOやOGPの対応が必要ない場合(管理画面など)は無理に入れずに[vue-cli](https://cli.vuejs.org/)を使って開発しても良いと思います。(もしくはNuxt.jsのSPAモード)
 
-## Nuxt.jsで気をつけること
+## Nuxt.jsを使う上で気をつけること
 
 ### SSRでのサーバー負荷
 
@@ -80,3 +80,178 @@ SSRは、サーバーに負荷がかかりやすい処理と言われていま�
 
 Nuxt.jsでSSRを行うには、サーバーにNode.jsの環境が必要になります。AWSやGCPなどのクラウドサーバーにはNode.jsの環境が整っていますが、レンタルサーバーなど安価なサーバーには備わってないことがあります。
 実際にアプリケーションを動かす環境を事前に確認して使用する必要があります。(Nuxt.jsを使って静的にHTMLを生成する場合は、こちらに当てはまりません。)
+
+## インストール
+
+今回は公式サイトに掲載されている`create-nuxt-app`を使ったインストールを行います。
+
+[Nuxt.js クイックインストール](https://ja.nuxtjs.org/guide/installation#-code-create-nuxt-app-code-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
+
+```
+
+$ npx create-nuxt-app <project-name>
+
+```
+
+`<project-name>`は任意の名前を指定します。
+
+インストールが始まると対話式でいくつか聞かれます。
+
+```bash
+
+? Project name (project-name) #プロジェクト名
+? Project description (My great Nuxt.js project) #プロジェクト詳細
+? Use a custom server framework (Use arrow keys) #サーバーサイドのフレームワーク 今回は none
+? Choose features to install # 必要なモジュールをインストールします 今回は何も選ばない
+? Use a custom UI framework # UI フレームワークを選びます 今回は none
+? Use a custom test framework # unitテストのツールを選びます 今回は none
+? Choose rendering mode # レンダリングモードを選びます 今回は Universal
+? Author name # ユーザー名
+? Choose a package manager # パッケージマネージャーを選択します 今回は npm
+
+```
+
+上記を選択していくとインストールが開始されます。
+`npm install`も同時に行ってくれます。
+
+下記コマンドで、アプリを起動できます。
+
+```bash
+
+$ cd <project-name>
+
+$ npm run dev
+
+```
+
+[http://localhost:3000](http://localhost:3000)でアプリケーションにアクセスできます。
+
+※ スクラッチでインストール、環境設定を行うこともできます。
+[スクラッチでインストール](https://ja.nuxtjs.org/guide/installation#%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%83%E3%83%81%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B)
+
+
+## ファイル・ディレクトリ構造
+
+create-nuxt-appを使ってインストールするとデフォルトでファイルやディレクトリが用意されています。
+それぞれ役割が分かれているので、幾つかのファイル・ディレクトリについて説明します。
+
+### nuxt.config.js
+
+Nuxt.jsの設定ファイルになります。Nuxt.jsが予め用意している設定を変更・拡張したい場合にこちらのファイルを変更します。
+configファイルの中身はオブジェクトが書かれたjsファイルで、各種プロパティに対して設定を行っていきます。
+
+[nuxt.config.jsプロパティ一覧](https://ja.nuxtjs.org/guide/configuration)
+
+例えば、webpackの設定を拡張したい場合には、`build`プロパティ設定を追加します。  
+同じように、独自の環境変数を追加したい場合は、`env`プロパティに変数を追加します。
+
+
+このように、アプリケーションに関数設定は、`nuxt.config.js`ファイルに集約します。
+
+### pagesディレクトリ
+
+各ページとなる`*.vue`ファイルを入れるディレクトリです。  
+(HTMLでいうと、index.htmlとかlist.htmlとかdetail.htmlなど、実際のページとなるファイルです)
+
+このディレクトリに入れたファイルは自動的にVue-Routerによってルーティング設定されます。
+そのため、開発者が手動でルーティング設定を行う必要がありません。
+
+静的なルーティングだけでなく、動的なルーティング(記事ページで`post/[id]`みたいにidが動的に変わるページなど)の生成も行えます。
+
+### componentsディレクトリ
+
+Vue.jsのコンポーネントファイルを入れます。  
+`pages`ディレクトリに入れたファイルから呼ばれるVueコンポーネント全てをこのディレクトリに集約します。
+
+### layoutsディレクトリ
+
+アプリケーション全体のレイアウトを構成する`*.vue`ファイルを入れます。  
+
+レイアウトファイルに、アプリケーション全体で使われるヘッターやフッターなどを書いておくことでアプリケーション全体で統一したデザインを作れます。
+
+また、レイアウトファイルは複数作れるので、ページごとにレイアウトの変更も可能です。
+
+### assets ディレクトリ
+
+scss、js、画像などビルド前のファイルを格納します。 
+グローバルなcssやjsはこちらのディレクトリに入れると良いです。
+
+### その他
+
+[Nuxt.jsディレクトリ構造](https://ja.nuxtjs.org/guide/directory-structure)
+
+
+## ページを追加してみよう
+
+ページを追加するには、`pages`ディレクトリに`*.vue`ファイルを追加します。
+
+`pages/index.vue`ファイルをコピーして、名前を`detail.vue`としましょう。
+
+そして、`detail.vue`のh1タグのテキストを変換します。
+
+```html
+<h1 class="title">
+    project-name
+</h1>
+
+<!-- 下に変更↓↓↓↓ -->
+
+<h1 class="title">
+    detail
+</h1>
+
+```
+
+出来たら、[http://localhost:3000/detail](http://localhost:3000/detail)にアクセスします。
+
+## `pages/*.vue`ファイルで使えるメソッド
+
+`pages`ディレクトリ内の`*.vue`ファイルでは、通常のVueメソッド以外にも使えるメソッドあります。
+SSRを行う上で必要になってくるメソッドが幾つかあるので紹介します。
+
+### asyncDataメソッド
+
+サーバーサイドでAPIからデータを取得して、コンポーネントの`data`としてセットしたい場合に使います。
+`asyncData`メソッド内でデータを取得することができるので、SEOやOGPの設定に有効です。
+
+また、サーバーサイドでの実行は初回描画のみで、Vue-Routerを使ってページを遷移した場合はクライアントサイドで実行されます。  
+(サーバー・クライアントサイド、両方同じコードで実行できる)
+
+#### ログを出してみよう
+
+`pages/detail.vue`ファイルの`asyncData`メソッドを使ってログを出してみましょう。
+
+
+```js
+
+export default {
+  asyncData() {
+    console.log('called asyncData')
+  },
+}
+```
+
+`asyncData`メソッド内でconsole.logでログをだす単純なプログラムを用意します。
+
+一度、devサーバーを停止し、再度起動します。
+
+[http://localhost:3000/detail](http://localhost:3000/detail)にアクセスすると、
+ターミナルに`called asyncData`と表示されます。
+
+このことから、ブラウザ側で実行されたのでなく、サーバー側で実行されたのがわかります。  
+  
+次に、クライアントサイドでログを出してみましょう。  
+Vue-Routerを使って[http://localhost:3000/detail](http://localhost:3000/detail)にアクセスすることで、
+ブラウザでログを確認できます。
+
+まず、`pages/index.vue`ファイルに`detail`ページへのリンクを設置します。
+
+```html
+<!-- 22行目に追加 -->
+<nuxt-link to="detail" class="button--grey">detail</nuxt-link>
+```
+
+`nuxt-link`タグは、Vue-Routerを使ったリンクの書き方です。`to`属性にはページの名前を指定します。(今回はdeital)
+
+[http://localhost:3000/](http://localhost:3000/)にアクセスします。そして、先ほど追加したボタンをクリックします。
+そうするとページが遷移し、ブラウザのconsoleに`called asyncData`が表示されます。
