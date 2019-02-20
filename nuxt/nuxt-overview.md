@@ -255,3 +255,192 @@ Vue-Routerを使って[http://localhost:3000/detail](http://localhost:3000/detai
 
 [http://localhost:3000/](http://localhost:3000/)にアクセスします。そして、先ほど追加したボタンをクリックします。
 そうするとページが遷移し、ブラウザのconsoleに`called asyncData`が表示されます。
+
+
+これにより、`asyncData`メソッドの処理は初期アクセスはサーバーサイド、それ以降のページ内遷移はクライアントサイドで実行されていることがわかると思います。
+
+#### データを設定する
+
+`asyncData`メソッドでは、APIなどで取得したデータをVueコンポーネントのデータに設定することができます。
+
+一旦APIは使わずに、静的なデータを設定してみましょう。
+
+コンポーネントにデータをセットする場合は、`asyncData`メソッドの戻り値にオブジェクトを指定します。
+
+オブジェクトのkeyが各データ名、valueがデータ値になります。
+
+実際に設定してみましょう。
+
+
+```html
+<template>
+  <div>
+    {{newData}}
+  </div>
+</template>
+
+<script>
+export default {
+  asyncData() {
+    return {
+      newData: 'set data from asyncData'
+    }
+  },
+}
+<script>
+```
+
+今回は、`newData`というデータを用意するため、戻り値のオブジェクトにkeyに`newData`を用意して、値を`set data from asyncData`にしています。 
+そして、テンプレート側に`{{newData}}`と記述することで、ブラウザ上で`set data from asyncData`が表示されます。
+
+これは次のコードに置き換えることができます。
+
+```html
+<template>
+  <div>
+    {{newData}}
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      newData: 'set data from asyncData'
+    }
+  }
+}
+<script>
+```
+
+違うのは、`asyncData`の場合はサーバーサイドであらかじめデータをセット出来るということです。
+これはSEOやOGPの設定に有効に働きます。
+
+#### APIからデータを取得してみる
+
+今度はAPI経由でJSONを取得し、コンポーネントのデータに反映しましょう。
+
+API通信するHTTPクライアントは`axios`を使います。(`create-nuxt-app`の設定で、既にインストール済みです)
+
+APIは以前使用した`json-server`を使いましょう。
+
+リポジトリ: [https://github.com/du-masa/json-server](https://github.com/du-masa/json-server)  
+json-server使い方: [https://study-frontend.netlify.com/jsonServer](https://study-frontend.netlify.com/jsonServer/)
+
+
+リポジトリが用意できたら、APIサーバーを立てましょう。
+
+```bash
+$ npm i 
+$ npm run api-server
+```
+
+立ち上がったら、今回は`http://localhost:3030/posts`というエンドポイントを使ってJSONを取得しましょう。
+
+`pages/detail.vue`の中身を下記のにします。
+
+```html
+<template>
+  <div>
+    {{posts}}
+  </div>
+</template>
+
+<script>
+import axios from 'axios' 
+export default {
+  asyncData() {
+    return axios.get('http://localhost:3030/posts')
+    .then((res) => {
+      return {
+        posts: res.data
+      }
+    })
+  }
+}
+<script>
+```
+
+APIで取得したデータを、`posts`というデータ名で用意してコンポーネントで使用できるようにしてます。
+ブラウザでアクセスして、`http://localhost:3030/posts`のJSONの中身が表示されればOKです。
+
+### headメソッド
+
+`head`メソッドは、htmlの`head`タグの記述を設定できます。 
+通常のSPAだと`head`タグの中身をjsで切り替えただけでは、クローラーなどにうまく認識されません。 
+`head`メソッド使ってheadタグの中身を設定することで、事前にサーバーサイドでレンダリングしてくれます。
+
+
+例えば、`title`タグの内容を設定するには下記のようにします。
+
+```html
+<script>
+import axios from 'axios' 
+export default {
+  head() {
+    return {
+      title: '詳細ページです',
+    }
+  }
+}
+<script>
+```
+
+`head`メソッドの戻り値をオブジェクトにして、keyに`title`、valueに実際に表示するタイトルのテキストを指定します。
+
+`meta`タグは複数存在するので、配列を指定して、`meta`タグごとの属性情報を指定したオブジェクトを格納します。
+
+```html
+<script>
+import axios from 'axios' 
+export default {
+  head() {
+    return {
+      title: '詳細ページです',
+      meta: [
+        { name: 'description', content: 'ディスクリプションディスクリプションディスクリプション' },
+      ]
+    }
+  }
+}
+<script>
+```
+
+上記は、`meta`タグの`description`を指定してます。
+
+#### APIから取得したデータをheadタグの中身に埋め込む
+
+`asyncData`メソッドを使ってAPIから取得したデータは`head`メソッド内で使用できます。
+
+`http://localhost:3030/posts/1`にアクセスすると、一つの記事情報が取得できます。 
+これを使って記事のタイトルを`title`タグの中身に設定してみましょう。
+
+```html
+<script>
+import axios from 'axios' 
+export default {
+  asyncData() {
+    return axios.get('http://localhost:3030/posts/1')
+    .then((res) => {
+      return {
+        post: res.data
+      }
+    })
+  },
+  head() {
+    return {
+      title: this.post,
+      meta: [
+        { name: 'description', content: 'ディスクリプションディスクリプションディスクリプション' },
+      ]
+    }
+  }
+}
+<script>
+```
+
+#### その他
+
+`head`メソッドは[vue-head](https://github.com/ktquez/vue-head)というモジュールを内部で利用しています。  
+`title`や`meta`タグ以外にも`head`タグ内で使用するタグの指定方法が載っていますので、参考にしてみてください。
+
