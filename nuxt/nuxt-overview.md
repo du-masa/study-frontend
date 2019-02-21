@@ -444,3 +444,11 @@ export default {
 `head`メソッドは[vue-head](https://github.com/ktquez/vue-head)というモジュールを内部で利用しています。  
 `title`や`meta`タグ以外にも`head`タグ内で使用するタグの指定方法が載っていますので、参考にしてみてください。
 
+
+## 参考文献
+- [Nuxt.js公式サイト](https://ja.nuxtjs.org/)
+- [Vue-Router](https://router.vuejs.org/ja/)
+- [Vue Server Renderer](https://ssr.vuejs.org/ja/)
+- [vue-cli](https://cli.vuejs.org/)
+- [vue-head](https://github.com/ktquez/vue-head)
+- [json-server](https://github.com/typicode/json-server)
