@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "gitbook serve",
+    "doc": "gitbook build ./ ./docs/",
     "build": "gitbook build ./ ./publish/"
   },
   "repository": {
