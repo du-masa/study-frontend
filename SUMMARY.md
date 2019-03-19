@@ -6,6 +6,7 @@
         * [小さく始める開発環境](開発環境構築/smallEnv.md)
         * [webpack](開発環境構築/webpack.md)
         * [webpack4](開発環境構築/webpack4.md)
+* [es2015-2018](es2015/README.md)
 * [vue.js](vue/README.md)
     * [vue.jsで作るタブUI](vue/tab.md)
     * [vue.jsで作るフォーム](vue/form.md)
