@@ -1008,3 +1008,32 @@ Promiseにより非同期処理のコールバック地獄問題が解消され�
 
 `async/await`についてはこちら
 [Promise, async, await がやっていること (Promise と async は書き換え可能か？)](https://qiita.com/kerupani129/items/2619316d6ba0ccd7be6a)
+
+## その他
+
+- ES module(`export/import`)[http://uehaj.hatenablog.com/entry/2015/11/07/001848](http://uehaj.hatenablog.com/entry/2015/11/07/001848)
+- Class構文[https://qiita.com/niisan-tokyo/items/83582bc0646239cf6cb8](https://qiita.com/niisan-tokyo/items/83582bc0646239cf6cb8)
+- `Object.entries/Object.values`[https://qiita.com/ledsun/items/953b25b60592c22811ca](https://qiita.com/ledsun/items/953b25b60592c22811ca)
+
+# 参考文献
+
+## ECMAScriptについて
+- [ECMAScriptとJavaScriptの関係 -Code Grid -](https://app.codegrid.net/entry/ecmascript-1)
+- [ES2015（ECMAScript 2015）とは何か](https://thinkit.co.jp/article/10434)
+
+## 環境設定
+- [今更のバベる。 Babel 7を試してみたメモ](https://chaika.hatenablog.com/entry/2018/11/21/150000)
+- [babel-preset-envを簡単にさわってみた。](https://qiita.com/ryuone/items/13f5d450c3865709ba10)
+- [【５分でなんとなく理解！】Babel入門](https://qiita.com/Shagamii/items/a87181c22ea777ee2acc)
+
+## 仕様
+- [ECMAScript 2015の新機能 -Code Grid- (一部のみ無料)](https://app.codegrid.net/series/2015-es6)
+- [ES2015で始めるJavaScript入門](https://qiita.com/abcang/items/824681cb88676da4f9a8)
+- [ES2015(ES6) 入門](https://qiita.com/soarflat/items/b251caf9cb59b72beb9b)
+- [イマドキのJavaScriptの書き方2018](https://qiita.com/shibukawa/items/19ab5c381bbb2e09d0d9)
+- [【JavaScript】スプレッド演算子の便利な使い方まとめ](https://qiita.com/Nossa/items/e6f503cbb95c8e6967f8)
+- [Promise, async, await がやっていること (Promise と async は書き換え可能か？)](https://qiita.com/kerupani129/items/2619316d6ba0ccd7be6a)
+- [(Babel 5における)ES6のモジュールを解説してみた](http://uehaj.hatenablog.com/entry/2015/11/07/001848)
+- [ES2015新機能: JavaScriptのclassとmethod](https://qiita.com/niisan-tokyo/items/83582bc0646239cf6cb8)
+- [Object.values/Object.entries](https://qiita.com/ledsun/items/953b25b60592c22811ca)
+- [ES仕様(es2015〜es2018)まとめ](https://qiita.com/ozoneboy/items/9c11ac3323ca94919052)
