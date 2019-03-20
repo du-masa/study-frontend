@@ -75,7 +75,7 @@ package.jsonに`@bable/cli`のコマンドを設定します。
 ```json
 {
   "scripts": {
-    "build": "babel assets -w -d public"
+    "dev": "babel assets -w -d public"
   }
 }
 ```
@@ -86,7 +86,7 @@ package.jsonに`@bable/cli`のコマンドを設定します。
 ```bash
 
 $ mkdir assets && touch assets/main.js
-$ npm run build
+$ npm run dev
 
 ```
 
