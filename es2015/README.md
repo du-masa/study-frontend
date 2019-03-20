@@ -544,3 +544,467 @@ let d = 'd'
 
 コールバック関数の引数で受け取っている`{ data }`は `{ data } = res`を行なっていると思ってください。
 これで`data`プロパティの中身だけ取得することができます。
+
+
+## デフォルト引数
+
+関数にデフォルト引数を設定できるようになりました。
+
+```js
+
+const calc = (num = 2) => num * 2
+
+calc(10) // 20
+calc() // 4
+
+```
+
+デフォルト引数を設定すると引数を渡した場合はその値を受け取り、
+引数が渡って来なかった場合はデフォルトで設定している値が引数に代入されます。
+
+引数が複数ある場合にも、デフォルト引数を設定している引数の順番に制約はありません。(エラーにならない)
+
+```js
+
+const calc = (num = 2, num2) => num * num2
+
+calc(10, 2) // 20
+calc() // 2 + undefined => return is NaN
+
+```
+
+上記の例だと1番目の`calc`関数の呼び出しは、引数を２つ渡しているのできちんと計算された答えが返ってきます。2番目の`calc`関数の呼び出しは、引数を省略しています。1番目の引数はデフォルト値があるので`2`になりますが、2番目の引数は渡ってきてないので`undefined`になります。
+`2 * undefined`を行い、戻り値は`NaN`になります。
+
+このようにJavaScriptではデフォルト引数の順番に制約はありませんが、予期せぬエラーを招く恐れがあるので、通常の引数の後に指定するのが賢明かと思います。
+
+## スプレッド演算子
+
+スプレッド演算子は`...`で表せます。配列展開や可変長引数で使用されます。
+
+### 配列の展開
+
+スプレッド演算子を配列に使うと、カンマ区切りで展開してくれます。
+
+```js
+
+const array = [1, 4, 10, 2]
+
+console.log(...array)
+// 上記は下記と同じ
+console.log(1, 4, 10, 2)
+
+```
+
+#### 使用例
+
+##### 配列の値を関数の引数に使いたい時
+
+例えば、`Math.max`メソッドは引数の数値の中から最大値を返します。
+
+```js
+Math.max(1, 10, 3) // 10
+```
+
+ある配列の数値の中の最大値を返したい場合はどうすれば良いでしょう。
+従来だと`apply`メソッドを使っていました。
+
+```js
+const array = [1, 10, 3]
+Math.max.apply(null, array) // 10
+```
+
+回りくどくわかりずらい書き方になります。
+
+そこでスプレッド演算子を使うを簡単に展開できます。
+
+```js
+const array = [1, 10, 3]
+Math.max(...array) // 10
+```
+
+##### 配列をコピーしたい時
+
+配列は参照渡しなので、他の変数に代入するだけではコピーはできません。
+
+```js
+const array1 = [1,2,3]
+const array2 = array1
+
+array2[2] = 4
+
+console.log(array1) // [1,2,4]
+console.log(array2) // [1,2,4]
+```
+
+配列を他の変数に代入して、配列の中身を変更した場合は代入元の配列も同じように変更されます。
+
+そのため、配列をコピーするには別の方法が必要です。
+
+従来だと配列の`slice`メソッドを使ってました。
+
+```js
+const array1 = [1,2,3]
+const array2 = array1.slice()
+
+array2[2] = 4
+
+console.log(array1) // [1,2,3]
+console.log(array2) // [1,2,4]
+
+```
+
+スプレッド演算子を使ってもコピーできるようになってます。
+
+```js
+const array1 = [1,2,3]
+const array2 = [...array1]
+
+array2[2] = 4
+
+console.log(array1) // [1,2,3]
+console.log(array2) // [1,2,4]
+
+```
+
+`...array1`が展開されて `1,2,3` になり それを`[]`で囲っているので普通の配列宣言のようになります。
+そのため、`array1`と`array2`は別の配列を参照することになります。
+
+
+### 可変長引数
+
+関数で指定した仮引数の数を超えて引数を渡した場合に、配列として受け取ることが可能です。
+
+従来も多く引数を渡した場合は、`arguments`という引数で受け取ることが可能でした。
+`arguments`には仮引数も合わせた全ての引数が格納されます。
+
+
+しかしこの`arguments`は配列ライクなもので完全な配列ではありません。
+そのため、配列で使えるメソッドがそのままでは使えないという欠点がありました。
+
+
+```js
+
+const calc = function(base) {
+    const array = [].slice.call(arguments, 1)
+    let total = 0
+    array.forEach((i) => {
+        total += base * i
+    })
+
+    return total
+}
+
+calc(10, 2, 33)
+
+```
+
+上記の例では、第一引数に渡された値をベースにそれ以外の引数を掛けて足したものを返してます。
+ループで使われている`forEach`メソッドは配列のメソッドなので`arguments`は使えません。
+また、第1引数は仮引数でで指定されていてループさせたくないので、それを除いた値をもつ配列にコピーしています。
+
+
+この回りくどい処理は、可変長引数を使えばシンプルに書けます。
+
+```js
+
+const calc = (base, ...array) => {
+    let total = 0
+    array.forEach((i) => {
+        total += base * i
+    })
+
+    return total
+}
+
+calc(10, 2, 33)
+
+```
+
+第2引数にスプレッド演算子を使った引数を用意することで、第2引数以降に渡ってくる値を配列に格納してくれます。そのため、そのまま配列のメソッドた使えるようになっています。
+
+
+## Promise
+
+Promiseは非同期処理を扱うための仕組みです。
+Promiseを使うことでいつ終わるかわからない非同期処理後の別処理を扱いやすくしてくれます。
+
+
+### コールバック地獄からの脱出
+
+非同期処理の代表例に`setTimeout`関数があります。  
+特定の時間を待ってから指定した処理を行う関数です。
+
+複数の`setTimeout`の処理を行うとコールバックの入れ子が深くなり非常に見難いコードになります。
+
+```js
+
+setTimeout(() => {
+  // do something
+  setTimeout(() => {
+    // do something
+    setTimeout(() => {
+      // do something
+    }, 3000)
+  }, 2000)
+}, 500)
+
+
+// ↓↓名前付き関数にして見やすくする
+const timer = (delay, callback) => {
+  setTimeout(() => {
+    callback()
+  }, delay)
+}
+
+timer(500, function() {
+  // do something
+  timer(2000, function() {
+    // do something
+    timer(3000, function() {
+      // do something
+    })
+  })
+})
+
+```
+
+コールバックが深くなること複雑になっていく印象を受けます。
+
+このコールバック地獄を解消してくれるのがPromiseという仕組みです。
+
+### Promiseオブジェクト
+
+Promiseを使うには、まずPromiseオブジェクトを生成します。  
+Promiseオブジェクトは`new Promise`で生成できます。
+
+```js
+
+const promiseInstance = new Promise((resolve, reject) => {
+  // do something
+})
+
+console.log(promiseInstance) //このpromiseInstance変数にPromiseオブジェクトが代入されています。
+
+```
+
+Promiseコンストラクタは、初期化時に関数を引数に取ります。
+さらにその関数の引数には、`resolve`と`reject`という引数2つを取ります。
+
+この2つの引数は、何かしらの非同期処理を行なった際にその処理が終わったことを伝えることができる関数です。
+2つ関数の違いは、`resolve`が処理の成功、`reject`は失敗の場合はに呼び出します。
+
+※成功・失敗とは、例えば非同期通信でステータスコードが200で返ってきたこときは成功、それ以外は失敗とみなして`resolve`と`reject`を使い分けるということです。
+
+
+`resolve`と`reject`は下記のように使います。
+
+```js
+
+const promiseInstance = new Promise((resolve, reject) => {
+
+  if (/* 成功した場合 */) {
+    resolve();
+  } else {
+    reject();
+  } 
+})
+
+```
+
+### thenとcatch
+
+Promiseオブジェクトは`then`と`catch`というメソッドを持っています。
+この2つのメソッドは`resolve`もしくは`reject`関数が呼び出されるのを待って実行されます。
+そのため、`then`と`catch`というメソッドを使うことで非同期処理後の処理を行うことができます。
+
+
+`then`と`catch`の違いは、`resolve`関数が呼ばれた時は`then`、`reject`関数が呼ばれた時は`catch`になります。
+
+```js
+
+const promiseInstance = new Promise((resolve, reject) => {
+
+  const random = Math.floor(Math.random() * 2)
+
+  if (random === 1) {
+    resolve(); // 成功した場合
+  } else {
+    reject(); // 失敗した場合
+  } 
+})
+
+promiseInstance
+  .then(() => {
+    console.log('called resolve')
+  })
+  .catch(() => {
+    console.log('called reject')
+  })
+```
+
+上記の例では、乱数を条件にして、その数値が`1`だった場合に`resolve`を、そうでない場合は`reject`を実行しています。
+
+`promiseInstance`変数で、`then`と`catch`メソッドを使うと結果によって実行される処理が変わってくるのがわかると思います。
+
+
+※`then`と`catch`メソッドはメソッドチェーンで書けます。
+
+
+次に、`resolve`もしくは`reject`を非同期処理後に呼び出して見たいと思います。
+
+```js
+
+const promiseInstance = new Promise((resolve, reject) => {
+
+  const random = Math.floor(Math.random() * 2)
+
+  setTimeout(() => {
+    if (random === 1) {
+      resolve(); // 成功した場合
+    } else {
+      reject(); // 失敗した場合
+    } 
+  }, 3000)
+})
+
+promiseInstance
+  .then(() => {
+    console.log('called resolve')
+  })
+  .catch(() => {
+    console.log('called reject')
+  })
+```
+
+上記の例では、`setTimeout`を使って3秒間処理を待たせています。その後`resolve`もしくは`reject`が呼ばれます。
+
+
+`then`や`catch`メソッドはその処理を待ってくれているので、`console.log`の表示はすぐに出ず、3秒後に表示されるようになります。
+
+
+### thenやcatchで値を受け取る
+
+`resolve`もしくは`reject`に引数を渡すことで`then`や`catch`でその値を受け取ることができます。
+
+```js
+
+const promiseInstance = new Promise((resolve, reject) => {
+
+  const random = Math.floor(Math.random() * 2)
+
+  setTimeout(() => {
+    if (random === 1) {
+      resolve('called resolve'); // 成功した場合
+    } else {
+      reject('called reject'); // 失敗した場合
+    } 
+  }, 3000)
+})
+
+promiseInstance
+  .then((log) => {
+    console.log(log)
+  })
+  .catch((log) => {
+    console.log(log)
+  })
+```
+
+上記のように書くことで、`then`や`catch`の第1引数に設定された関数の引数として受け取ることができます。
+
+非同期通信で受け取ったデータを`then`や`catch`で処理する時はこのように使うことが多いです。
+
+
+### コールバック地獄をPromiseで解消してみる
+
+非同期処理の最初の例で出したコールバック地獄をPromiseを使って解消して見ましょう。
+
+`timer`関数の戻り値をPromiseオブジェクトにすることで入れ子ではなく、`then`や`catch`を使った処理に置き換えることができます。
+
+```js
+
+const timer = (delay) => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, delay)
+  })
+
+  return promise
+}
+
+timer(500)
+  .then(timer(1000))
+  .then(timer(2000))
+
+```
+
+
+`timer`関数はPromiseオブジェクトを返すので`then`メソッドを使えるよになります。
+`timer`関数で`resolve`関数が呼ばれるまで次の処理を待つという形が作れます。
+
+
+### axiosの戻り値もPromiseオブジェクト
+
+最近の非同期通信のクライアントライブラリといえば`axios`がありますが、
+`axios`の`get`や`post`メソッドの戻り値はPromiseオブジェクトになります。
+
+```js
+import axios from 'axios'
+
+axios.get('path/to/endpoint')
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+
+`then`や`catch`メソッドが使えるのは戻り値がPromiseオブジェクトだからです。
+通信に成功した場合は、`then`が呼ばれ、引数でレスポンスの情報を受け取れます。
+反対に、失敗した場合は`catch`が呼ばれ、同じくレスポンス情報を受け取れます。
+
+
+Promiseがなかった時は、jQueryの`ajax`メソッドなどで非同期通信を行なってたりしましたが、
+その時の書き方に比べだいぶ前シンプルになりました。
+※[jQuery deferred](https://qiita.com/opengl-8080/items/6eba7922be168edfc439)というPromiseライクなものも後発であります。
+
+
+```js
+
+// jquery ajax
+$.ajax({
+    url: "http://jsrun.it/assets/E/H/Z/t/EHZt3",
+    success: function (data) {
+        $("#results").append(data);
+        // コールバックが続くとこの中にさらに非同期処理を書く
+    },
+    error: function () {
+        alert("読み込み失敗");
+    }
+});
+
+
+// Promise + axios
+axios.get("http://jsrun.it/assets/E/H/Z/t/EHZt3")
+  .then((data) => {
+    $("#results").append(data);
+  })
+  .catch(() => {
+    alert("読み込み失敗");
+  })
+```
+
+### さらに１歩先へ、 async/await
+
+Promiseにより非同期処理のコールバック地獄問題が解消されました。
+しかし、それでも長い処理になると今度はメソッドチェーンが長くなり複雑になることがあります。
+
+そこでメソッドチェーンではなく、`async/await`を使った方法が新しく用意されました。
+
+`async/await`は見かけ上は同期処理っぽく書けるのでコードがスッキリします。
+
+`async/await`についてはこちら
+[Promise, async, await がやっていること (Promise と async は書き換え可能か？)](https://qiita.com/kerupani129/items/2619316d6ba0ccd7be6a)
