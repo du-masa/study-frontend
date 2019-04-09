@@ -546,7 +546,7 @@ Elementsパネルのstylesペインのプラスマークを長押しすると、
 
 ### アニメーションの速度を調整
 
-<img src="/image/developerTools/animationspeed.png" width="20">でアニメーションのスピードを調整することができます。
+<img src="/image/developerTools/animationspeed.png" width="120">でアニメーションのスピードを調整することができます。
 
 ### 要素ごとのアニメーションの長さやタイミング調整
 

@@ -32,7 +32,7 @@ ECMAScriptで仕様が策定されたからと言って、すぐにブラウザ�
 ## 環境設定
 
 ブラウザが未対応だけども、使いたい仕様がある場合はコードをトランスパイルする必要性があります。
-[abel](https://babeljs.io/)もしくは[TypeScript](https://www.typescriptlang.org/)を使って行われることが多いと思います。
+[babel](https://babeljs.io/)もしくは[TypeScript](https://www.typescriptlang.org/)を使って行われることが多いと思います。
 
 今回は、Babelを使ってトランスパイルします。
 
@@ -436,7 +436,7 @@ $('button').on('click', () => {
 import $ from 'jquery'
 
 // functionを使う
-$('button').on('click', function() => {
+$('button').on('click', function() {
   $(this).addClass('class') 
 });
 
