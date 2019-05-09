@@ -2,7 +2,7 @@
 
 デベロッパーツールを使うことでコードのデバックやパフォーマンスチューニングをおこなうことができます。　
 
-各ブラウザごとにデベロッパーツールは用意されていますが、今回扱うのはGoogle Chrome Developer Toolsdです。
+各ブラウザごとにデベロッパーツールは用意されていますが、今回扱うのはGoogle Chrome Developer Toolsです。
 
 # 起動
 
@@ -31,6 +31,9 @@ HTMLの構造や要素のCSSを確認でき、リアルタイムで変更可能�
 
 メインエリアにはDOMツリー表示され、その右もしくは下には要素に当てられたスタイルなどを表示するサイドバーがあります。
 
+![elementsパネル](/image/developerTools/elements.png)
+
+
 ### Elementsパネルの機能
 
 #### 要素の選択
@@ -40,6 +43,8 @@ Elementsパネルで検証を行うときは見たいHTML要素を選択する�
 選択には左上の矢印アイコンをクリックするか、ショートカット`commond + option + c`を入力しましょう。
 
 その状態で表示しているwebページから直接要素を選択できます。
+
+![elementsパネル](/image/developerTools/element_select.gif)
 
 #### 要素を編集する
 
@@ -52,16 +57,24 @@ Elementsパネルで検証を行うときは見たいHTML要素を選択する�
 
 また、右クリックから`Add Attribute`や`Edit Attribute`を選んでも属性を操作できます。
 
+![elementsパネル](/image/developerTools/add_attribute.gif)
+
 
 ##### 要素の削除、非表示
 
 選択した要素はdeleteキーもしくは右クリックの`Delete Element`で削除できます。
 
+![elementsパネル](/image/developerTools/delete_element.gif)
+
 非表示は右クリック`Hide Element`を選択で行えます。有効にすると要素に`visivility:hidden`のスタイルが付与されます。
+
+![elementsパネル](/image/developerTools/hide_element.gif)
 
 #### 要素の入れ替え
 
 DOMツリーで要素の順番を入れ替えるには、選択した要素を移動させたいところまでドラッグするだけで出来ます。
+
+![elementsパネル](/image/developerTools/move_element.gif)
 
 #### 擬似クラスのついた状態に固定
 
@@ -69,7 +82,13 @@ DOMツリーで要素の順番を入れ替えるには、選択した要素を�
 
 右クリックで`Force State`を選択します。その中には`:hover`や`:active`があります。これらを有効にすることで擬似クラスが付いた状態の検証が行えます。
 
+![elementsパネル](/image/developerTools/hover_element.gif)
+
+
 サイドバーにある、`Styles`ペインの`:hov`ボタンでも同じことができます。
+
+![elementsパネル](/image/developerTools/hover_element2.gif)
+
 
 #### Stylesペインでスタイルを編集
 
@@ -80,15 +99,22 @@ DOMツリーで要素の順番を入れ替えるには、選択した要素を�
 
 Stylesペインのプラス記号をクリックすると選択中の要素のセレクタでCSSルールが追加されます。
 
+![elementsパネル](/image/developerTools/add_css_rule.gif)
+
 #### classを追加
 
 Stylesペインの`.cls`をクリックすると、選択中の要素にクラスを追加できます。inputタグに任意のクラス名を入力すると、要素に追加されます。
 また、inputタグの下にチェックボックスが表示されている場合があります。これは選択中の要素に指定されているクラス名になります。チェックボックスのチェックをoffにすると一時的にそのクラス名を要素から外すことができます。
 
+![elementsパネル](/image/developerTools/add_class.gif)
+
 #### ビューへのスクロール
 
 要素を選択しているときに、webページをスクロールして要素が画面から外れてしまうときがあります。デベロッパーツールで要素があるところにスクロール位置を移動することできます。
 選択された要素で右クリックをして、`Scroll into view`を押すとスクロール位置を移動してくれます。
+
+![elementsパネル](/image/developerTools/view_scroll.gif)
+
 
 #### DOM ブレイクポイント
 
@@ -102,6 +128,8 @@ DOMに設定できるブレイクポイントは３つです。
 - Attribute Modified
 - Node Removed
 
+![elementsパネル](/image/developerTools/dom_breakpoint.gif)
+
 ※コード出典[Tools for Web Developers DOM の編集](https://developers.google.com/web/tools/chrome-devtools/inspect-styles/edit-dom?hl=ja#dom_4)
 
 ##### Subtree Modified
@@ -112,7 +140,7 @@ DOMに設定できるブレイクポイントは３つです。
 
 ```html
 <div id="main-content">
-    aaa
+    main-content
 </div>
 <button id="addSubtreeButton">add subtree</button>
 ```
@@ -124,9 +152,14 @@ button.addEventListener('click', function() {
     const element = document.getElementById('main-content');
     //modify the element's subtree.
     const mySpan = document.createElement('span');
+    mySpan.textContent = 'added text'
     element.appendChild( mySpan );
 })
+
 ```
+
+![elementsパネル](/image/developerTools/dom_breakpoint_1.gif)
+
 
 ##### Attribute Modified
 
@@ -137,7 +170,7 @@ button.addEventListener('click', function() {
 
 ```html
 <div id="main-content">
-    aaa
+    main-content
 </div>
 <button id="addClassButton">add class</button>
 ```
@@ -152,6 +185,9 @@ button.addEventListener('click', function() {
 })
 ```
 
+![elementsパネル](/image/developerTools/dom_breakpoint_2.gif)
+
+
 ##### Node Removed
 
 選択した要素自体を削除した時に処理を止めることができます。
@@ -161,7 +197,7 @@ button.addEventListener('click', function() {
 
 ```html
 <div id="main-content">
-    aaa
+    main-content
 </div>
 <button id="removeElement">remove element</button>
 ```
@@ -173,6 +209,8 @@ button.addEventListener('click', function() {
     document.getElementById('main-content').remove();
 })
 ```
+
+![elementsパネル](/image/developerTools/dom_breakpoint_3.gif)
 
 ※`display:none`で要素を隠している場合は、発動されません。
 
@@ -196,6 +234,8 @@ DOMに設定されているブレイクポイントを確認するには、サ�
 
 イベントのコールバック関数を確認するには`hundler`を選択して右クリック、`Show function Definition`を選ぶことでできます。
 
+![elementsパネル](/image/developerTools/dom_eventListener.gif)
+
 ##### Ancestors
 
 `Event Listeners`ペインの上部にある`Ancestors`チェックボックスをオンにすると、祖先要素のイベントまで確認することができます。
@@ -205,7 +245,7 @@ DOMに設定されているブレイクポイントを確認するには、サ�
 イベントの詳細を見ると、右側にどこで関数が定義されているか表示されます。
 しかし、ライブラリ(例えばjQuery)でカスタムされたイベントを使うと、ライブラリ内のコードを参照してしまうため、デバックが難しくなります。
 
-しかし、`Event Listeners`ペインの上部にある`Ancestors`チェックボックスをオンにすると、デベロッパーツールがその問題を解決してくれて、実際にユーザーが定義した関数の位置を表示してくれます。
+しかし、`Event Listeners`ペインの上部にある`Framework listeners`チェックボックスをオンにすると、デベロッパーツールがその問題を解決してくれて、実際にユーザーが定義した関数の位置を表示してくれます。
 
 ## Consoleパネル
 
@@ -223,6 +263,8 @@ JavaScriptのコード上でログを出力するには　`console`オブジェ�
 console.log("this is console.log")
 ```
 
+![elementsパネル](/image/developerTools/console_log.png)
+
 #### console.error console.warn
 
 基本的な使い方は`console.log`と同じですが、ログを目立たせたい時に使います。
@@ -233,6 +275,8 @@ console.log("this is console.log")
 console.warn("this is console.warn")
 console.error("this is console.error")
 ```
+
+![elementsパネル](/image/developerTools/console_log2.png)
 
 
 #### console.group console.groupEnd
@@ -255,6 +299,9 @@ console.group("this is console.group2")
 console.groupEnd()
 ```
 
+![elementsパネル](/image/developerTools/console_log3.png)
+
+
 #### console.table
 
 コンロール上にオブジェクトの内容を表形式にして表示します。オブジェクトを格納した配列の中身を確認する時などに見やすくなるので便利です。
@@ -272,7 +319,7 @@ const list = [
     {
         id:3,
         value: "C"
-    }
+    },
     {
         id:4,
         value: "D"
@@ -280,6 +327,9 @@ const list = [
 ]
 console.table(list)
 ```
+
+![elementsパネル](/image/developerTools/console_log4.png)
+
 
 #### console.time console.timeEnd
 
@@ -293,6 +343,22 @@ console.time('logTimer')
 // do something...
 console.timeEnd('logTimer')
 ```
+
+![elementsパネル](/image/developerTools/console_log5.png)
+
+
+### コンソールにスタイルをあてる
+
+コンソールの出力結果を、CSSで装飾することができます。
+
+装飾したい値の前に`%c`というフォーマット指定子をつけて、後ろの引数でプロパティを指定します。
+
+```js
+console.log("%cthis is big size log", "font-size: 50px")
+```
+
+![elementsパネル](/image/developerTools/console_style.png)
+
 
 #### その他のメソッドと注意事項
 
@@ -326,11 +392,15 @@ $_
 // => 6
 ```
 
+![elementsパネル](/image/developerTools/console_$.gif)
+
 
 #### $0 - $4
 
 過去に選択されたDOM要素が格納されてます。
 $0から$4までの変数があり、4が一番古い履歴です。
+
+![elementsパネル](/image/developerTools/console_$dom.gif)
 
 #### $(selector, [startSelector])
 
@@ -338,19 +408,29 @@ $0から$4までの変数があり、4が一番古い履歴です。
 
 第２引数で検索を開始するDOM要素を指定することができます。
 
+![elementsパネル](/image/developerTools/console_$query.gif)
+
 #### $$(selector, [startSelector])
 
 `document.querySelectorAll`のエイリアスになります。
 
 第２引数で検索を開始するDOM要素を指定することができます。
 
+![elementsパネル](/image/developerTools/console_$queryall.gif)
+
 #### clear()
 
 consoleのログ表示をリセットします。
 
+![elementsパネル](/image/developerTools/console_clear.gif)
+
+
 #### dir()
 
 DOM要素をオブジェクトとして表示してくれます。
+
+![elementsパネル](/image/developerTools/console_dir.gif)
+
 
 #### その他
 
@@ -362,6 +442,8 @@ DOM要素をオブジェクトとして表示してくれます。
 リロードしたり、他のページに遷移した際にログは消えてしまいます。
 ページをまたいでのデバックを行い時はログを残すように設定できます。
 consoleパネルに表示されている`Preserve log`のチェックを入れることでログを引き継ぐことができます。
+
+![elementsパネル](/image/developerTools/console_save.gif)
 
 ### XMLHttpResuestのログを表示する
 
@@ -393,6 +475,9 @@ JSは`commond + s`で保存することで反映されます。
 
 また、ソースを選択した状態で右クリックで`Local Modifications`を選択することで変更の差分を確認できます。
 
+![elementsパネル](/image/developerTools/source_change.gif)
+
+
 ### ワークスペースを利用してファイルに変更を保存
 
 ワークスペースを使うことでデベロッパーツール上で変更した内容をローカルファイルにそのまま保存することができます。
@@ -402,6 +487,8 @@ JSは`commond + s`で保存することで反映されます。
 Choromeから許可を求められて、許可すると、デベロッパーツール上フォルダが追加されます。
 
 この状態でファイルを変更すると、ローカルファイルも同時に変更されます。
+
+![elementsパネル](/image/developerTools/source_change_local.gif)
 
 ### Snippets
 
@@ -413,6 +500,8 @@ Choromeから許可を求められて、許可すると、デベロッパーツ�
 
 デバックで使える便利なスニペット集もあります。
 [DevTools Snippets](https://bgrins.github.io/devtools-snippets/)
+
+![elementsパネル](/image/developerTools/source_sunippets.gif)
 
 ### コードの自動整形
 
@@ -476,12 +565,14 @@ XHRブレイクポイントはAjaxでのリクエストURLに対して任意の�
 
 ブレイクポイントを操作するボタンについて説明します。
 
-① 次のブレイクポイントまで進みます。次のブレイクポイントがなかった場合は、一時停止を終了します。
-② 次の行へ移動します。関数の実行があったとしてもその内部までは移動しません。
-③ 次の行へ移動します。関数の実行があった場合は、その内部まで移動します。
-④ 関数内の場合はその関数を終了し、関数の呼び出し元に戻ります。関数外の場合は一時停止を終了します。
-⑤全てのブレイクポイントを一時的に無効にします。
-⑥例外が発生したときに一時的にコードを一時停止します。
+![elementsパネル](/image/developerTools/break_btn.png)
+
+① 次のブレイクポイントまで進みます。次のブレイクポイントがなかった場合は、一時停止を終了します。   
+② 次の行へ移動します。関数の実行があったとしてもその内部までは移動しません。  
+③ 次の行へ移動します。関数の実行があった場合は、その内部まで移動します。  
+④ 関数内の場合はその関数を終了し、関数の呼び出し元に戻ります。関数外の場合は一時停止を終了します。  
+⑤全てのブレイクポイントを一時的に無効にします。  
+⑥例外が発生したときに一時的にコードを一時停止します。  
 
 
 #### 関数の呼ばれた順番を確認する
@@ -502,6 +593,8 @@ Sourcesパネルの`Call Stack`を見ると、ブレイクポイントでの停�
 Elementsパネルのstylesペインのプラスマークを長押しすると、`inspect-stylesheet`の他に現在ダウンロードされたCSSファイルが表示される。CSSファイルを選択すると、stylesペインに選択中の要素のセレクタが自動的に設定されたCSSルールが追加されます。
 書き先のソースは先ほど選んだCSSファイルになります。
 
+![elementsパネル](/image/developerTools/source_add_cssrule.gif)
+
 これにより、SourcesパネルからわざわざCSSファイルを変更しなくて済みます。
 `inspect-stylesheet`に新規追加するとスタイルの優先順位が高くなってしまうので、優先順位を意識したいときなどに便利かもしれません。
 
@@ -509,7 +602,12 @@ Elementsパネルのstylesペインのプラスマークを長押しすると、
 
 デベロッパーツール下部に表示される付属機能のエリアです。デベロッパーツールを開いた状態で`esc`キーを押すか右上にある<img src="/image/developerTools/menu.png" width="20">ボタンから`Show console drawer`を選択することで開かれます。
 
+![elementsパネル](/image/developerTools/drawr_show.gif)
+
+
 ドロワーにタブを追加するにはドロワー左側にある<img src="/image/developerTools/menu.png" width="20">ボタンを選択して、使いたいタブを追加します。
+
+![elementsパネル](/image/developerTools/drawr_add_panel.gif)
 
 ## 使ってないコードを検出する　Coverage
 
@@ -533,6 +631,7 @@ Elementsパネルのstylesペインのプラスマークを長押しすると、
 
 アニメーションを自動で検出し、アニメーションのスピードやタイミング、長さなどを調査して理想の動きに変更できます。
 
+※実験用におすすめサイト[動くCSSのためのメモ。](https://lopan.jp/css-animation/)
 
 例えば、タブ切り替えにアニメーションをつけていたとします。
 タブを切り替えるとアニメーションが自動で検出されます。
@@ -542,17 +641,27 @@ Elementsパネルのstylesペインのプラスマークを長押しすると、
 検出されたアニメーションを選択すると、アニメーションの詳細が表示されます。
 詳細一覧の左側には、アニメーションが発生しているDOM要素、右側にはプロパティ名やアニメーションの動き、タイミング、長さが表示されます。
 
+![elementsパネル](/image/developerTools/drawr_animation.gif)
+
 一覧の上にある<img src="/image/developerTools/play.png" width="20">を押すとアニメーションがスタートします。
+
+![elementsパネル](/image/developerTools/drawr_animation_play.gif)
 
 ### アニメーションの速度を調整
 
 <img src="/image/developerTools/animationspeed.png" width="120">でアニメーションのスピードを調整することができます。
+
+![elementsパネル](/image/developerTools/drawr_animation_speed.gif)
+
 
 ### 要素ごとのアニメーションの長さやタイミング調整
 
 詳細一覧の右側にあるアニメーションをドラッグしたり、円の位置をずらしたりすることで長さやアニメーション開始のタイミングを調整できます。
 
 ここで変更した内容は、CSSに反映されます。
+
+![elementsパネル](/image/developerTools/drawr_animation_timeming_function.gif)
+
  
 # 参考文献
 - [Tools for Web Developers](https://developers.google.com/web/tools/chrome-devtools/?hl=ja)
