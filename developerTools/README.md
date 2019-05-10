@@ -510,11 +510,49 @@ Choromeから許可を求められて、許可すると、デベロッパーツ�
 
 整形したいソースを開いて、左下部にある`{}`をクリックすることで綺麗に整形してくれます。
 
+![elementsパネル](/image/developerTools/source_expand.gif)
+
 ### ブレイクポイント
 
 JavaScriptのコードにブレイクポイントを設定することができます。
 
 ブレイクポイントを設定することで変数の中身や処理の流れを確認することができ、バグの検証に役立ちます。
+
+※下記ブレイクポイントを試せそうなコード
+
+```js
+let val = "";
+let i = 1;
+
+const func1 = () => {
+    console.log("this is func1");
+    val = "this is func1";
+}
+
+const func2 = () => {
+    console.log("this is func2");
+    val = "this is func2";
+    func1();
+}
+
+const func3 = () => {
+    console.log("this is func3");
+    val = "this is func3";
+
+    for (let i = 1; i < 10; i++) {
+        console.log("looping");
+    }
+    func2();
+}
+
+const main = () => {
+    console.log("this is main");
+    val = "main";
+    func3();
+}
+
+main();
+```
 
 #### コード行ブレイクポイント
 
@@ -587,6 +625,15 @@ Sourcesパネルの`Call Stack`を見ると、ブレイクポイントでの停�
 一つは、Sourcesパネルの`Scope`で確認できます。`Scope`には、グローバル変数と現在実行中のスコープのローカル変数が表示されます。ブレイクポイントの位置を動かすことで変数の値が変化していくのがわかります。
 
 もう一つは、`Watch`で確認できます。ここにはあらかじめ監視したい変数名を登録しておくことで、実行位置が進むにつれてどのように値が変化していくかを確認できます。
+
+#### ビルドされたjsでブレイクポイントを設定する
+
+webpackなどでビルドされたjsだとブレイクポイントを設定する場所をどこにすればいいのかがわからなくなります。
+そのため、ソースマップを生成するように設定し、ビルド前の元ファイルにブレイクポイントを仕込みます。
+
+ソースマップはwebpackの設定で生成できます。
+
+ブラウザソースマップを確認するにはこちらを参考にしてみてください。[各ブラウザでソースマップを確認する方法](https://qiita.com/pegass85/items/b9aae1adf51646707486?fbclid=IwAR1dhWjsWm8dTq5F3sd7Kct5pMHCVtk6972QOkLLc-W5NlpxB2GA8PVKpUc)
 
 ### ElementsパネルのstylesペインからCSSソースにルールを追加する
 
