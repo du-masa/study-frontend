@@ -10,7 +10,7 @@
 - Rendering
 - Painting
 
-<img src="/image/developerTools/rendering_flow.png" width="20">
+<img src="/image/developerTools/rendering_flow.png" width="700">
 
 さらにこれらの工程の中で細かく工程分けされてます。
 
@@ -18,7 +18,7 @@
 
 LoadingではURLをもとに必要なリソースの**ダウンロード(Download)**と**構文解析(parse)**の２つが行われます。
 
-<img src="/image/developerTools/loading_flow.png" width="20">
+<img src="/image/developerTools/loading_flow.png" width="300">
 
 ### Download
 
@@ -43,6 +43,8 @@ TCPプロトコルは、相手が確実に届くことを保証します。(IP�
 
 ただ、このコネクションを行う際に３回通信を行います。パフォーマンスを意識する際にこの３回の通信時間がかかることを意識する必要があります。
 
+参考: [TCP/IP - TCP three-way handshaking](https://www.infraexpert.com/study/tcpip9.html)
+
 TLSプロトコルは、https化されているwebサイトの場合使われます。TLSでは認証や通信の暗号化を行います。
 その準備のためにTLSではさらに１往復半(3回の通信)を行うため、その分時間がかかります。
 
@@ -62,6 +64,7 @@ HTMLは解析されてDOMツリーに変換されます。DOMツリーは木構�
 
 CSSは解析されCSSOMツリーに変換されます。DOMと同じように木構造になっております。さらに構築されたCSSOMツリーはJavaScriptからアクセスできます。
 
+
 ## Scripting
 
 JavaScriptの実行が行われます。
@@ -74,7 +77,7 @@ Scriptingは初回読み込み時以外にもDOMイベントが発生した際�
 
 Renderingでは**スタイルの計算(Calculate Style)**と**レイアウト(Layout)**の２つが行われます。
 
-<img src="/image/developerTools/loading_flow.png" width="20">
+<img src="/image/developerTools/loading_flow.png" width="300">
 
 ### Calculate Style
 
@@ -113,3 +116,5 @@ z軸の関係を持つ場合に新しいレイヤーが生成されます。
 
 Rasterizeでのレイヤーを合成して最終的なレンダリング結果を生成します。
 
+
+参考: [ブラウザレンダリング入門〜知ることで見える世界〜](https://qiita.com/Leapin_JP/items/caed57ec30d638e40728#parse%E3%83%91%E3%83%BC%E3%82%B9)
