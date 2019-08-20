@@ -30,7 +30,7 @@ googleでは下記モジュールの使用をオススメしています。
 
 - HTML [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
 - CSS [optimize-css-assets-webpack-plugin](https://github.com/NMFR/optimize-css-assets-webpack-plugin)
-- JS [uglifyjs-webpack-plugin] (https://github.com/webpack-contrib/uglifyjs-webpack-plugin)
+- JS [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin)
 
 
 画像の最適化は、画像の余計な情報を削ぎ落とし軽量化します。
