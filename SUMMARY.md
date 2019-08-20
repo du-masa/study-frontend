@@ -23,3 +23,4 @@
 * [browser](browser/README.md)
 * [developerTools](developerTools/README.md)
     * [developerTools](developerTools/performance.md)
+* [performance](performance/README.md)
