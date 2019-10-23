@@ -468,7 +468,7 @@ import '@storybook/addon-viewport/register';
 
 `addon-viewport`は登録のみで使用可能です。
 
-<img src="/image/storybook/addon-addon-viewport.gif" width="700">
+<img src="/image/storybook/addon-viewport.gif" width="700">
 
 
 ## HTMLファイルにビルド
