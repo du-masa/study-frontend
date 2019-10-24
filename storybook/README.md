@@ -100,7 +100,7 @@ $ touch ./components/Button.stories.js
 ```js
 // Button.stories.js
 import Vue from 'vue';
-import ButtomComponent from './Button';
+import ButtonComponent from './Button';
 ```
 
 ### グループわけする
@@ -110,7 +110,7 @@ Storyはグループ分けできます。
 ```js
 // Button.stories.js
 import Vue from 'vue';
-import ButtomComponent from './Button';
+import ButtonComponent from './Button';
 
 export default { title: 'Button' }; // Buttonという名のグループを指定する
 ```
@@ -122,7 +122,7 @@ export default { title: 'Button' }; // Buttonという名のグループを指�
 ```js
 // Button.stories.js
 import Vue from 'vue';
-import ButtomComponent from './Button';
+import ButtonComponent from './Button';
 
 export default { title: 'Atoms|Button' }; // Atoms/Buttonという名のグループを指定する
 ```
@@ -136,7 +136,7 @@ export default { title: 'Atoms|Button' }; // Atoms/Buttonという名のグル�
 ```js
 // Button.stories.js
 import Vue from 'vue';
-import ButtomComponent from './Button';
+import ButtonComponent from './Button';
 
 export default { title: 'Atoms|Button' }; // Atoms/Buttonという名のグループを指定する
 
@@ -175,7 +175,7 @@ export const BasicButton = () => ({
 ```js
 // Button.stories.js
 import Vue from 'vue';
-import ButtomComponent from './Button';
+import ButtonComponent from './Button';
 
 // 新しく追加
 import LoadingButtonComponent from './LoadingButton';
